@@ -1,0 +1,6 @@
+{
+  "/api": {
+    "target": "http://plantsapi.azurewebsites.net",
+    "changeOrigin": true
+  }
+}

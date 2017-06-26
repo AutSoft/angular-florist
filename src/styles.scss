@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$plants-app-primary: mat-palette($mat-teal);
+$plants-app-accent: mat-palette($mat-pink);
+
+$plants-app-theme: mat-light-theme($plants-app-primary, $plants-app-accent);
+
+@include angular-material-theme($plants-app-theme);
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: $mat-font-family;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $mat-font-family;
+}

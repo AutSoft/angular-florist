@@ -2,9 +2,9 @@
   <h1>Kategóriák</h1>
   <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center center"
        fxLayoutAlign.sm="center stretch" fxLayoutAlign.xs="center stretch" fxLayoutWrap>
-    <md-card fxFlex="45%" fxFlex.sm="100%" fxFlex.xs="100%">
-      <md-card-title></md-card-title>
-      <md-card-subtitle></md-card-subtitle>
+    <md-card fxFlex="45%" fxFlex.sm="100%" fxFlex.xs="100%" *ngFor="let category of categories">
+      <md-card-title>{{category.name}}</md-card-title>
+      <md-card-subtitle>{{category.plantsCount}} darab</md-card-subtitle>
     </md-card>
   </div>
 </div>

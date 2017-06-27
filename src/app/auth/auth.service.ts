@@ -1,42 +1,31 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, RequestMethod, RequestOptionsArgs } from '@angular/http';
 import { TokenService } from './token.service';
-import { environment } from '../../environments/environment';
-import { Observable } from 'rxjs/Observable';
+import { BaseHttpService } from '../base-http-service';
 
 @Injectable()
-export class AuthService {
+export class AuthService extends BaseHttpService {
 
-  constructor(private http: Http, private tokenService: TokenService) {}
+  constructor(http: Http, tokenService: TokenService) {
+    super(http, tokenService);
+  }
 
   login(username: string, password: string) {
-    return this.http.post(environment.baseUrl + '/login', {username, password})
-      .map(response => {
-        const body: { token: string } = response.json();
-        this.tokenService.token = body.token;
-        return body;
-      })
-      .catch(response => {
-        const error: { Code?: number, Description?: string } = response.json();
-        const message = error.Description || 'Váratlan hiba';
-        console.log(message);
-        return Observable.throw(response);
-      });
+    return this.authenticate(username, password, 'login');
   }
 
   register(username: string, password: string) {
-    return this.http.post(environment.baseUrl + '/register', {username, password})
-      .map(response => {
-        const body: { token: string } = response.json();
-        this.tokenService.token = body.token;
-        return body;
-      })
-      .catch(response => {
-        const error: { Code?: number, Description?: string } = response.json();
-        const message = error.Description || 'Váratlan hiba';
-        console.log(message);
-        return Observable.throw(response);
-      });
+    return this.authenticate(username, password, 'register');
+  }
+
+  private authenticate(username: string, password: string, url: string) {
+    const options: RequestOptionsArgs = {};
+    options.method = RequestMethod.Post;
+    options.url = url;
+    options.body = {username, password};
+    return this.send<{ token: string }>(options).map(resp => {
+      this.tokenService.token = resp.token;
+    });
   }
 
 }

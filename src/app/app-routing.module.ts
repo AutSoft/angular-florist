@@ -11,6 +11,15 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'products',
+    loadChildren: 'app/products/products.module#ProductsModule'
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'products'
   }
 ];
 

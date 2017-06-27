@@ -23,7 +23,7 @@ import { InMemoryPlantsDbService } from '../mocks/in-memory-plants-db-service';
     AppRoutingModule,
     AuthModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryPlantsDbService)
+    InMemoryWebApiModule.forRoot(InMemoryPlantsDbService, {delay: 1000})
   ],
   bootstrap: [AppComponent],
   providers: []

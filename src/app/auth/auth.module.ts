@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { MdButtonModule, MdInputModule } from '@angular/material';
 import { TokenService } from './token.service';
 import { AuthService } from './auth.service';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import { AuthService } from './auth.service';
     MdInputModule,
     MdButtonModule
   ],
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, RegisterComponent],
   providers: [TokenService, AuthService]
 })
 export class AuthModule {

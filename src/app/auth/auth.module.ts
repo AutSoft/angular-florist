@@ -8,6 +8,7 @@ import { AuthService } from './auth.service';
 import { RegisterComponent } from './register/register.component';
 import { CustomFormsModule } from 'ng2-validation';
 import { RouterModule } from '@angular/router';
+import { AuthGuardService } from './auth-guard.service';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { RouterModule } from '@angular/router';
     RouterModule
   ],
   declarations: [LoginComponent, RegisterComponent],
-  providers: [TokenService, AuthService]
+  providers: [TokenService, AuthService, AuthGuardService]
 })
 export class AuthModule {
 }

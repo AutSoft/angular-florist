@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Http, RequestMethod, RequestOptionsArgs } from '@angular/http';
 import { TokenService } from './token.service';
 import { BaseHttpService } from '../base-http-service';
@@ -6,7 +7,10 @@ import { BaseHttpService } from '../base-http-service';
 @Injectable()
 export class AuthService extends BaseHttpService {
 
-  constructor(http: Http, tokenService: TokenService) {
+  _isLoggedIn = false;
+  _redirectUrl = '';
+
+  constructor(http: Http, tokenService: TokenService, private router: Router) {
     super(http, tokenService);
   }
 
@@ -25,7 +29,19 @@ export class AuthService extends BaseHttpService {
     options.body = {username, password};
     return this.send<{ token: string }>(options).map(resp => {
       this.tokenService.token = resp.token;
+      this._isLoggedIn = true;
+      this.router.navigateByUrl(this._redirectUrl);
     });
+  }
+
+  get isLoggedIn() {
+    return this._isLoggedIn;
+  }
+
+  set redirectUrl(url) {
+    if (url) {
+      this._redirectUrl = url;
+    }
   }
 
 }

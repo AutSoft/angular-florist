@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Bejelentkezés</h1>
+  <form novalidate #form="ngForm" (ngSubmit)="login()">
+    <div>
+      <md-input-container>
+        <input mdInput placeholder="Felhasználónév" [(ngModel)]="username" name="username" required>
+      </md-input-container>
+    </div>
+    <div>
+      <md-input-container>
+        <input mdInput type="password" placeholder="Jelszó" [(ngModel)]="password" name="password" required
+               minlength="4">
+      </md-input-container>
+    </div>
+    <div>
+      <button md-raised-button color="accent" [disabled]="form.invalid">Bejelentkezés</button>
+    </div>
+  </form>
+</div>

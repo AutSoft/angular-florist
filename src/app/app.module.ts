@@ -10,6 +10,9 @@ import { AuthModule } from './auth/auth.module';
 import { HttpModule } from '@angular/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryPlantsDbService } from '../mocks/in-memory-plants-db-service';
+import { environment } from '../environments/environment';
+
+const devImports = environment.production ? [] : [InMemoryWebApiModule.forRoot(InMemoryPlantsDbService, {delay: 1000})];
 
 @NgModule({
   declarations: [
@@ -23,7 +26,7 @@ import { InMemoryPlantsDbService } from '../mocks/in-memory-plants-db-service';
     AppRoutingModule,
     AuthModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryPlantsDbService, {delay: 1000})
+    ...devImports
   ],
   bootstrap: [AppComponent],
   providers: []

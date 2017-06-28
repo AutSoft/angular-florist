@@ -1,0 +1,42 @@
+md-card {
+  margin: 1%;
+  height: 100vh;
+}
+
+.status {
+  vertical-align: bottom;
+}
+
+.image {
+  height: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.img-container {
+  height: 65%;
+  text-align: center;
+}
+
+.description {
+  height: 30%;
+  overflow-y: scroll;
+  overflow-x: auto;
+}
+
+md-card-header {
+  height: 5%;
+}
+
+md-card-content {
+  height: 21%;
+  margin: 2% 0;
+  overflow-y: scroll;
+  overflow-x: auto;
+}
+
+md-card-actions {
+  height: 5%;
+  padding: 0;
+}

@@ -7,18 +7,21 @@ import { ProductsListComponent } from './products-list/products-list.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { PlantsComponent } from './plants/plants.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MdCardModule } from '@angular/material';
+import { MdButtonModule, MdCardModule, MdSlideToggleModule } from '@angular/material';
 import { CategoryService } from './categories.service';
+import { PlantsService } from './plants.service';
 
 @NgModule({
   imports: [
     CommonModule,
     ProductsRoutingModule,
     FlexLayoutModule,
-    MdCardModule
+    MdCardModule,
+    MdSlideToggleModule,
+    MdButtonModule
   ],
   declarations: [ProductsComponent, ProductsListComponent, CategoriesComponent, PlantsComponent],
-  providers: [CategoryService]
+  providers: [CategoryService, PlantsService]
 })
 export class ProductsModule {
 }

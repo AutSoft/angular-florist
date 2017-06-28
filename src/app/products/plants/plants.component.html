@@ -1,3 +1,54 @@
-<p>
-  plants works!
-</p>
+<div>
+  <div class="header" fxLayoutAlign="space-between baseline" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+    <div fxFlex="none" fxLayout="row" fxLayoutAlign="start center">
+      <h1>Növények</h1>
+    </div>
+    <md-slide-toggle fxFlex="none" class="favorite-toggle">
+      Csak a kedvencek
+    </md-slide-toggle>
+  </div>
+  <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center"
+       fxLayoutAlign.sm="center stretch" fxLayoutAlign.xs="center stretch" fxLayoutWrap>
+    <md-card fxFlex="30%" fxFlex.sm="100%" fxFlex.xs="100%"
+             *ngFor="let plant of plants; trackBy: trackById">
+      <md-card-header>
+        <md-card-title>
+          <span>{{plant.name}}</span>
+          <md-icon class="status">{{plant.isFavorite ? 'favorite' : 'favorite_border'}}</md-icon>
+        </md-card-title>
+      </md-card-header>
+      <div class="img-container">
+        <img class="image" [src]="plant.imageUrl">
+      </div>
+      <md-card-content>
+        <p class="description">{{plant.description}}</p>
+        <div>
+          <span>Fagytűrő?: </span>
+          <span>{{plant.isFrostProof ? 'Igen' : 'Nem'}}</span>
+        </div>
+        <div>
+          <span>Ültetési hely: </span>
+          <span>{{lightReqEnumDisplayableValues[plant.lightReq]}}</span>
+        </div>
+        <div>
+          <span>Ültetési idő: </span>
+          <span *ngFor="let plantingTime of plant.plantingTime; let isLast = last;">
+            <span *ngIf="!isLast">{{plantingTimeEnumDisplayableValues[plantingTime]}},</span>
+            <span *ngIf="isLast">{{plantingTimeEnumDisplayableValues[plantingTime]}}</span>
+          </span>
+        </div>
+        <div>
+          <span>Tápanyag utánpótlás: </span>
+          <span>{{nutritionReqEnumDisplayableValues[plant.nutritionReq]}}</span>
+        </div>
+        <div>
+          <span>Vízigény: </span>
+          <span>{{waterReqEnumDisplayableValues[plant.waterReq]}}</span>
+        </div>
+      </md-card-content>
+      <md-card-actions>
+        <button md-button (click)="toggleFavoriteStatus(plant)">{{plant.isFavorite ? 'TÖRLÉS' : 'KEDVENC'}}</button>
+      </md-card-actions>
+    </md-card>
+  </div>
+</div>

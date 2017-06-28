@@ -25,7 +25,9 @@ export class PlantsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.params.switchMap(params => this.plantsService.getPlants(params['catId'])).subscribe(
+    Observable.combineLatest(this.route.params, this.route.queryParams).switchMap(
+      res => this.plantsService.getPlants(res[0].catId, res[1])
+    ).subscribe(
       plants => this.plants = plants,
       () => {}
     );

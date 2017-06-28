@@ -1,0 +1,55 @@
+<div>
+  <h1>Szűrés</h1>
+  <div fxLayout="row" fxLayout.sm="column" fxLayoutAlign="space-between baseline" fxLayout.xs="column"
+       fxLayoutAlign.sm="space-between stretch" fxLayoutAlign.xs="space-between stretch" fxLayoutWrap>
+    <div class="option-input" fxFlex>
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <md-checkbox fxFlex="none" [(ngModel)]="filterObject.isFrostProof" name="frostProof">Fagytűrő</md-checkbox>
+        <button fxFlex="none" md-icon-button (click)="removeIsFrostProof()">
+          <md-icon>clear</md-icon>
+        </button>
+      </div>
+    </div>
+    <div class="multiple-select option-input" fxFlex>
+      <md-select multiple placeholder="Ültetési hely" [(ngModel)]="filterObject.lightReq" name="lightReq">
+        <md-option *ngFor="let option of lightReqOptions" [value]="option">
+          {{lightReqEnumDisplayableValues[option]}}
+        </md-option>
+      </md-select>
+    </div>
+    <div class="multiple-select option-input" fxFlex>
+      <md-select multiple placeholder="Ültetési idő" [(ngModel)]="filterObject.plantingTime" name="plantingTime">
+        <md-option *ngFor="let option of plantingTimeOptions" [value]="option">
+          {{plantingTimeEnumDisplayableValues[option]}}
+        </md-option>
+      </md-select>
+    </div>
+    <div fxFlex class="option-input">
+      <div fxLayout="row">
+        <md-select fxFlex placeholder="Vízigény" [(ngModel)]="filterObject.waterReq" name="waterReq">
+          <md-option *ngFor="let option of waterReqOptions" [value]="option">
+            {{waterReqEnumDisplayableValues[option]}}
+          </md-option>
+        </md-select>
+        <button fxFlex="none" md-icon-button (click)="removeWaterReq()">
+          <md-icon>clear</md-icon>
+        </button>
+      </div>
+    </div>
+    <div fxFlex class="option-input">
+      <div fxLayout="row">
+        <md-select fxFlex placeholder="Tápanyag utánpótlás" [(ngModel)]="filterObject.nutritionReq" name="nutritionReq">
+          <md-option *ngFor="let option of nutritionReqOptions" [value]="option">
+            {{nutritionReqEnumDisplayableValues[option]}}
+          </md-option>
+        </md-select>
+        <button fxFlex="none" md-icon-button (click)="removeNutritionReq()">
+          <md-icon>clear</md-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="end">
+    <button md-raised-button color="accent" class="filter-button" (click)="filterClicked()">Szűrés</button>
+  </div>
+</div>

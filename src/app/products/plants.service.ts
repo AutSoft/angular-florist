@@ -11,10 +11,11 @@ export class PlantsService extends BaseHttpService {
     super(http, tokenService);
   }
 
-  getPlants() {
+  getPlants(categoryId) {
     const options: RequestOptionsArgs = {};
     options.url = 'plants';
     options.method = RequestMethod.Get;
+    options.params = {categoryId};
     return this.send<Plant[]>(options);
   }
 

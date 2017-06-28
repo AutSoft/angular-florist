@@ -5,6 +5,8 @@ import { LightReqEnumDisplayableValues } from '../models/light-req-enum';
 import { NutritionReqEnumDisplayableValues } from '../models/nutrition-req-enum';
 import { WaterReqEnumDisplayableValues } from '../models/water-req-enum';
 import { PlantingTimeEnumDisplayableValues } from '../models/planting-time-enum';
+import { Observable } from 'rxjs/Rx';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-plants',
@@ -19,11 +21,11 @@ export class PlantsComponent implements OnInit {
   plantingTimeEnumDisplayableValues = PlantingTimeEnumDisplayableValues;
   waterReqEnumDisplayableValues = WaterReqEnumDisplayableValues;
 
-  constructor(private plantsService: PlantsService) {
+  constructor(private plantsService: PlantsService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.plantsService.getPlants().subscribe(
+    this.route.params.switchMap(params => this.plantsService.getPlants(params['catId'])).subscribe(
       plants => this.plants = plants,
       () => {}
     );

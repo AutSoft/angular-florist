@@ -6,13 +6,15 @@ import { MdButtonModule, MdInputModule } from '@angular/material';
 import { TokenService } from './token.service';
 import { AuthService } from './auth.service';
 import { RegisterComponent } from './register/register.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     MdInputModule,
-    MdButtonModule
+    MdButtonModule,
+    RouterModule
   ],
   declarations: [LoginComponent, RegisterComponent],
   providers: [TokenService, AuthService]

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Filter } from '../models/filter';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products-list',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  filterChanged(filterObject: Filter) {
+    const url = this.router.url.split('?')[0];
+    this.router.navigate([url], {queryParams: filterObject});
+  }
 }

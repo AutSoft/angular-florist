@@ -7,9 +7,13 @@ import { ProductsListComponent } from './products-list/products-list.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { PlantsComponent } from './plants/plants.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MdButtonModule, MdCardModule, MdIconModule, MdSlideToggleModule } from '@angular/material';
+import {
+  MdButtonModule, MdCardModule, MdCheckboxModule, MdIconModule, MdOptionModule, MdSelectModule, MdSlideToggleModule
+} from '@angular/material';
 import { CategoryService } from './categories.service';
 import { PlantsService } from './plants.service';
+import { ProductsFilterComponent } from './products-filter/products-filter.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -19,9 +23,12 @@ import { PlantsService } from './plants.service';
     MdCardModule,
     MdSlideToggleModule,
     MdButtonModule,
-    MdIconModule
+    MdIconModule,
+    MdCheckboxModule,
+    FormsModule,
+    MdSelectModule
   ],
-  declarations: [ProductsComponent, ProductsListComponent, CategoriesComponent, PlantsComponent],
+  declarations: [ProductsComponent, ProductsListComponent, CategoriesComponent, PlantsComponent, ProductsFilterComponent],
   providers: [CategoryService, PlantsService]
 })
 export class ProductsModule {

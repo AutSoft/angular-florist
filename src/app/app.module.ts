@@ -11,6 +11,8 @@ import { HttpModule } from '@angular/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryPlantsDbService } from '../mocks/in-memory-plants-db-service';
 import { environment } from '../environments/environment';
+import { NotificationService } from './notification.service';
+import { ToastModule } from 'ng2-toastr';
 
 const devImports = environment.production ? [] : [InMemoryWebApiModule.forRoot(InMemoryPlantsDbService, {delay: 1000})];
 
@@ -26,10 +28,11 @@ const devImports = environment.production ? [] : [InMemoryWebApiModule.forRoot(I
     AppRoutingModule,
     AuthModule,
     HttpModule,
-    ...devImports
+    ...devImports,
+    ToastModule.forRoot()
   ],
   bootstrap: [AppComponent],
-  providers: []
+  providers: [NotificationService]
 })
 export class AppModule {
 }

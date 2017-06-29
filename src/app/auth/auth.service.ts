@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Http, RequestMethod, RequestOptionsArgs } from '@angular/http';
 import { TokenService } from './token.service';
 import { BaseHttpService } from '../base-http-service';
+import { NotificationService } from '../notification.service';
 
 @Injectable()
 export class AuthService extends BaseHttpService {
@@ -10,8 +11,8 @@ export class AuthService extends BaseHttpService {
   _isLoggedIn = false;
   _redirectUrl = '';
 
-  constructor(http: Http, tokenService: TokenService, private router: Router) {
-    super(http, tokenService);
+  constructor(http: Http, tokenService: TokenService, notificationService: NotificationService, private router: Router) {
+    super(http, tokenService, notificationService);
   }
 
   login(username: string, password: string) {

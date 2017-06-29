@@ -4,12 +4,13 @@ import { Plant } from './models/plant';
 import { TokenService } from '../auth/token.service';
 import { BaseHttpService } from '../base-http-service';
 import { Filter } from './models/filter';
+import { NotificationService } from '../notification.service';
 
 @Injectable()
 export class PlantsService extends BaseHttpService {
 
-  constructor(http: Http, tokenService: TokenService) {
-    super(http, tokenService);
+  constructor(http: Http, tokenService: TokenService, notificationService: NotificationService) {
+    super(http, tokenService, notificationService);
   }
 
   getPlants(categoryId: number, searchParams?: Filter) {

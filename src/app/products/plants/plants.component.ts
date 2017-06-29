@@ -40,8 +40,4 @@ export class PlantsComponent implements OnInit {
     );
   }
 
-  trackById(index, item: Plant) {
-    return item.id;
-  }
-
 }

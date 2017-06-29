@@ -15,6 +15,7 @@ import { PlantsService } from './plants.service';
 import { ProductsFilterComponent } from './products-filter/products-filter.component';
 import { FormsModule } from '@angular/forms';
 import { CategoryPipe } from './category.pipe';
+import { PlantsPipe } from './plants.pipe';
 
 @NgModule({
   imports: [
@@ -31,7 +32,7 @@ import { CategoryPipe } from './category.pipe';
   ],
   declarations: [
     ProductsComponent, ProductsListComponent, CategoriesComponent, PlantsComponent, ProductsFilterComponent,
-    CategoryPipe],
+    CategoryPipe, PlantsPipe],
   providers: [CategoryService, PlantsService]
 })
 export class ProductsModule {

@@ -6,14 +6,14 @@
       </button>
       <h1>Növények</h1>
     </div>
-    <md-slide-toggle fxFlex="none" class="favorite-toggle">
+    <md-slide-toggle fxFlex="none" [(ngModel)]="isFavoriteFilterOn" class="favorite-toggle">
       Csak a kedvencek
     </md-slide-toggle>
   </div>
   <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center"
        fxLayoutAlign.sm="center stretch" fxLayoutAlign.xs="center stretch" fxLayoutWrap>
     <md-card fxFlex="30%" fxFlex.sm="100%" fxFlex.xs="100%"
-             *ngFor="let plant of plants; trackBy: trackById">
+             *ngFor="let plant of plants | plantsPipe:isFavoriteFilterOn; trackBy: trackById">
       <md-card-header>
         <md-card-title>
           <span>{{plant.name}}</span>

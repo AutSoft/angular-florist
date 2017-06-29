@@ -13,7 +13,7 @@
   <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center"
        fxLayoutAlign.sm="center stretch" fxLayoutAlign.xs="center stretch" fxLayoutWrap>
     <md-card fxFlex="30%" fxFlex.sm="100%" fxFlex.xs="100%"
-             *ngFor="let plant of plants; trackBy: trackById">
+             *ngFor="let plant of plants">
       <md-card-header>
         <md-card-title>
           <span>{{plant.name}}</span>

@@ -7,6 +7,7 @@ import { WaterReqEnumDisplayableValues } from '../models/water-req-enum';
 import { PlantingTimeEnumDisplayableValues } from '../models/planting-time-enum';
 import { Observable } from 'rxjs/Rx';
 import { ActivatedRoute } from '@angular/router';
+import { NotificationService } from '../../notification.service';
 
 @Component({
   selector: 'app-plants',
@@ -21,7 +22,7 @@ export class PlantsComponent implements OnInit {
   plantingTimeEnumDisplayableValues = PlantingTimeEnumDisplayableValues;
   waterReqEnumDisplayableValues = WaterReqEnumDisplayableValues;
 
-  constructor(private plantsService: PlantsService, private route: ActivatedRoute) {
+  constructor(private plantsService: PlantsService, private route: ActivatedRoute, private notificationService: NotificationService) {
   }
 
   ngOnInit() {
@@ -37,7 +38,7 @@ export class PlantsComponent implements OnInit {
     this.plantsService.toggleFavoriteStatusOfPlant(plant.id).subscribe(
       () => {
         plant.isFavorite = !plant.isFavorite;
-        console.log(
+        this.notificationService.showSuccessMessage(
           plant.isFavorite ? `${plant.name} kedvencnek jelölve` : `${plant.name} törölve a kedvencek közül`);
       },
       () => {}

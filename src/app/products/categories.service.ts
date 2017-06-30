@@ -4,12 +4,13 @@ import { Http, RequestMethod, RequestOptionsArgs } from '@angular/http';
 import { TokenService } from '../auth/token.service';
 import { Category } from './models/category';
 import { Filter } from './models/filter';
+import { NotificationService } from '../notification.service';
 
 @Injectable()
 export class CategoryService extends BaseHttpService {
 
-  constructor(http: Http, tokenService: TokenService) {
-    super(http, tokenService);
+  constructor(http: Http, tokenService: TokenService, notificationService: NotificationService) {
+    super(http, tokenService, notificationService);
   }
 
   getCategories(searchParams?: Filter) {

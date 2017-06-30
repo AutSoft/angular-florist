@@ -2,9 +2,10 @@ import { Headers, Http, RequestOptionsArgs } from '@angular/http';
 import { TokenService } from './auth/token.service';
 import { Observable } from 'rxjs/Observable';
 import { environment } from '../environments/environment';
+import { NotificationService } from './notification.service';
 
 export class BaseHttpService {
-  constructor(private http: Http, protected tokenService: TokenService) {}
+  constructor(private http: Http, protected tokenService: TokenService, private notificationService: NotificationService) {}
 
   send<T>(options: RequestOptionsArgs): Observable<T> {
     if (!options.headers) {
@@ -17,7 +18,7 @@ export class BaseHttpService {
       .catch(response => {
         const error: { Code?: number, Description?: string } = response.json();
         const message = error.Description || 'Váratlan hiba';
-        console.log(message);
+        this.notificationService.showErrorMessage(message);
         return Observable.throw(response);
       });
   }

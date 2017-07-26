@@ -8,13 +8,8 @@ import { MdIconModule, MdToolbarModule } from '@angular/material';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './auth/auth.module';
 import { HttpModule } from '@angular/http';
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryPlantsDbService } from '../mocks/in-memory-plants-db-service';
-import { environment } from '../environments/environment';
 import { NotificationService } from './notification.service';
 import { ToastModule } from 'ng2-toastr';
-
-const devImports = environment.production ? [] : [InMemoryWebApiModule.forRoot(InMemoryPlantsDbService, {delay: 1000})];
 
 @NgModule({
   declarations: [
@@ -28,7 +23,6 @@ const devImports = environment.production ? [] : [InMemoryWebApiModule.forRoot(I
     AppRoutingModule,
     AuthModule,
     HttpModule,
-    ...devImports,
     ToastModule.forRoot()
   ],
   bootstrap: [AppComponent],

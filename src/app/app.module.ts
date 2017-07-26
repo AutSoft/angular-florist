@@ -5,8 +5,6 @@ import 'hammerjs';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdIconModule, MdToolbarModule } from '@angular/material';
-import { AuthModule } from './auth/auth.module';
-import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [

@@ -15,7 +15,8 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     MdInputModule,
     MdButtonModule,
-    CustomFormsModule
+    CustomFormsModule,
+    RouterModule
   ],
   declarations: [LoginComponent, RegisterComponent],
   providers: [TokenService, AuthService]

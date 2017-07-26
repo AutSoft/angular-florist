@@ -5,6 +5,9 @@ import 'hammerjs';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdIconModule, MdToolbarModule } from '@angular/material';
+import { AppRoutingModule } from 'app/app-routing.module';
+import { AuthModule } from './auth/auth.module';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { MdIconModule, MdToolbarModule } from '@angular/material';
     BrowserModule,
     BrowserAnimationsModule,
     MdIconModule,
-    MdToolbarModule
+    MdToolbarModule,
+    AuthModule,
+    AppRoutingModule,
+    HttpModule
   ],
   bootstrap: [AppComponent],
   providers: []

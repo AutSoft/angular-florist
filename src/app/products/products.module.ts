@@ -7,7 +7,7 @@ import { ProductsListComponent } from './products-list/products-list.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { PlantsComponent } from './plants/plants.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MdButtonModule, MdCardModule, MdSlideToggleModule } from '@angular/material';
+import { MdButtonModule, MdCardModule, MdSlideToggleModule, MdIconModule } from '@angular/material';
 import { CategoryService } from './categories.service';
 import { PlantsService } from './plants.service';
 
@@ -18,7 +18,8 @@ import { PlantsService } from './plants.service';
     FlexLayoutModule,
     MdCardModule,
     MdSlideToggleModule,
-    MdButtonModule
+    MdButtonModule,
+    MdIconModule
   ],
   declarations: [ProductsComponent, ProductsListComponent, CategoriesComponent, PlantsComponent],
   providers: [CategoryService, PlantsService]

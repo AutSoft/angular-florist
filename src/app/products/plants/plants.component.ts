@@ -7,6 +7,7 @@ import { WaterReqEnumDisplayableValues } from '../models/water-req-enum';
 import { PlantingTimeEnumDisplayableValues } from '../models/planting-time-enum';
 import { ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-plants',

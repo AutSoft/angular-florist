@@ -1,7 +1,7 @@
 <div>
   <div class="header" fxLayoutAlign="space-between baseline" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
     <div fxFlex="none" fxLayout="row" fxLayoutAlign="start center">
-      <button class="back" md-icon-button routerLink="../" queryParamsHandling="preserve">
+      <button class="back" md-icon-button routerLink="../">
         <md-icon>keyboard_backspace</md-icon>
       </button>
       <h1>Növények</h1>
@@ -13,7 +13,7 @@
   <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="center"
        fxLayoutAlign.sm="center stretch" fxLayoutAlign.xs="center stretch" fxLayoutWrap>
     <md-card fxFlex="30%" fxFlex.sm="100%" fxFlex.xs="100%"
-             *ngFor="let plant of plants; trackBy: trackById">
+             *ngFor="let plant of plants">
       <md-card-header>
         <md-card-title>
           <span>{{plant.name}}</span>

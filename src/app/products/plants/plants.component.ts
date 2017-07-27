@@ -5,8 +5,9 @@ import { LightReqEnumDisplayableValues } from '../models/light-req-enum';
 import { NutritionReqEnumDisplayableValues } from '../models/nutrition-req-enum';
 import { WaterReqEnumDisplayableValues } from '../models/water-req-enum';
 import { PlantingTimeEnumDisplayableValues } from '../models/planting-time-enum';
-import { Observable } from 'rxjs/Rx';
 import { ActivatedRoute } from '@angular/router';
+import 'rxjs/add/operator/switchMap';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-plants',
@@ -42,10 +43,6 @@ export class PlantsComponent implements OnInit {
       },
       () => {}
     );
-  }
-
-  trackById(index, item: Plant) {
-    return item.id;
   }
 
 }
